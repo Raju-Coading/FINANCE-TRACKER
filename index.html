@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Finance Tracker - Dashboard</title>
+</head>
+<body>
+    <h1>Personal Finance Tracker</h1>
+    <div class="img-one" > 
+        <div class="tag" >
+            <h2>"Your money, your control <br> – track, save, succeed!"</h2>
+          <p>A Finance Tracker is a personal finance management application designed to help users monitor their income, track expenses, and maintain financial balance. It simplifies budgeting and empowers users to make informed decisions about their money.</p>
+          </div> 
+          <div class="img" > <img src="{{ url_for('static', filename='download.jpeg') }}" alt="Image">
+          </div></div>
+    
+    <div class="summary">
+        <p><strong>Total Income:</strong> Rs {{ income }}</p>
+        <p><strong>Total Expenses:</strong> Rs {{ expenses }}</p>
+        <p><strong>Balance:</strong> Rs {{ balance }}</p>
+    </div>
+
+   
+    <nav>
+        <a href="{{ url_for('add_income') }}">Add Income</a>
+        <a href="{{ url_for('add_expense') }}">Add Expense</a>
+        <a href="{{ url_for('view_transactions') }}">View Transactions</a>
+        <a href="{{ url_for('transactions_by_month') }}">Transactions by Month</a>
+        <a href="{{ url_for('delete_all') }}" onclick="return confirm('Are you sure you want to delete all data?');">Delete All Data</a>
+    </nav>
+    <div class="about-contact">
+        <div class="about-section">
+            <h2>About Us</h2>
+            <p>
+                Welcome to our Finance Tracker tool! This platform is designed to help you manage your finances efficiently. Simply input your transactions, and you’ll have a clear view of your income and expenses.
+            </p>
+            <p>
+                Our mission is to make financial management simple and accessible. Stay connected with us for updates and insights!
+            </p>
+        </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Finance Tracker. All rights reserved.</p>
+        <p>Created by Shivam Kahar</p>
+    </footer>
+
+</body>
+</html>

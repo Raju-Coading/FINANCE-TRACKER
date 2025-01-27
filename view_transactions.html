@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>View Transactions</title>
+</head>
+<body>
+    <h1>All Transactions</h1>
+    <div>
+        <h2>Income</h2>
+        <ul>
+            {% for income in incomes %}
+            <li>{{ income[1] }} - {{ income[2] }} - Rs {{ income[3] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h2>Expenses</h2>
+        <ul>
+            {% for expense in expenses %}
+            <li>{{ expense[1] }} - {{ expense[2] }} - Rs {{ expense[3] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Dashboard</a>
+</body>
+</html>

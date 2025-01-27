@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Add Expense</title>
+</head>
+<body>
+    <h1>Add Expense</h1>
+    <form action="{{ url_for('add_expense') }}" method="POST" class="form">
+        <label for="date">Date (YYYY-MM-DD):</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" required>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+
+        <button type="submit">Add Expense</button>
+    </form>
+    <a href="{{ url_for('index') }}" class="back-link">Back to Dashboard</a>
+</body>
+</html>

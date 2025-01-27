@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Transactions by Month</title>
+</head>
+<body>
+    <h1>Transactions by Month</h1>
+    <form action="{{ url_for('transactions_by_month') }}" method="POST" class="form">
+        <label for="month">Month (YYYY-MM):</label>
+        <input type="month" id="month" name="month" required>
+        <button type="submit">View</button>
+    </form>
+
+    {% if incomes or expenses %}
+    <h2>Results for {{ month }}</h2>
+    <div>
+        <h3>Income</h3>
+        <ul>
+            {% for income in incomes %}
+            <li>{{ income[1] }} - {{ income[2] }} - Rs {{ income[3] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h3>Expenses</h3>
+        <ul>
+            {% for expense in expenses %}
+            <li>{{ expense[1] }} - {{ expense[2] }} - Rs {{ expense[3] }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    <a href="{{ url_for('index') }}" class="back-link">Back to Dashboard</a>
+</body>
+</html>
